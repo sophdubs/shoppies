@@ -8,7 +8,7 @@ import axios from 'axios';
 const KEY = process.env.REACT_APP_OMDB_API_KEY;
 
 function App() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(['Movie1', 'Movie2', 'Movie3', 'Movie4', 'Movie5']);
   
   const fetchMovies = searchTerm => {
     axios.get(`http://www.omdbapi.com/?s=${searchTerm}&apikey=${KEY}`)
@@ -23,7 +23,7 @@ function App() {
       <Header/>
       <SearchBar fetchMovies={fetchMovies}/>
       <main class="main-container">
-        <Movies/>
+        <Movies movieList={movies}/>
         <Nominees/>
       </main>
     </div>
