@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 
-function SearchBar() {
+function SearchBar(props) {
   const [searchTerm, setSearchTerm] = useState('');
 
   const updateSearchTerm = e => {
@@ -9,9 +9,9 @@ function SearchBar() {
   }
 
   const triggerSearch = e => {
-    //api call with searchTerm
+    props.fetchMovies(searchTerm)
   }
-  
+
   return (
    <div>
      <input type="text" value={searchTerm} onChange={updateSearchTerm} placeholder="Type movie title"/>
